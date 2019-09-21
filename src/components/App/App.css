@@ -20,3 +20,9 @@
 .App-link {
   color: #09d3ac;
 }
+
+.Select-beverage {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
