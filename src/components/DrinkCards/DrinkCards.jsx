@@ -15,6 +15,8 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import Button from '@material-ui/core/Button';
+import './DrinkCards.css';
 
 const useStyles = makeStyles(theme => ({
     card: {
@@ -48,65 +50,54 @@ export default function DrinkCards() {
     }
 
     return (
-        <Card className={classes.card}>
-            <CardHeader
-                avatar={
-                    <Avatar aria-label="recipe" className={classes.avatar}>
-                        D
-          </Avatar>
-                }
-                action={
-                    <IconButton aria-label="settings">
-                        <MoreVertIcon />
-                    </IconButton>
-                }
-                title="Drink Name"
-                subheader="A Delicious Beverage"
-            />
-            <CardMedia
-                className={classes.media}
-                title="Beverage"
-            />
-            <CardContent>
-                <Typography variant="body2" color="textSecondary" component="p">
-                    Drink Description
-        </Typography>
-            </CardContent>
-            <CardActions disableSpacing>
-                <IconButton aria-label="add to favorites">
-                    <FavoriteIcon />
-                </IconButton>
-                <IconButton aria-label="share">
-                    <ShareIcon />
-                </IconButton>
-                <IconButton
-                    className={clsx(classes.expand, {
-                        [classes.expandOpen]: expanded,
-                    })}
-                    onClick={handleExpandClick}
-                    aria-expanded={expanded}
-                    aria-label="show more"
-                >
-                    <ExpandMoreIcon />
-                </IconButton>
-            </CardActions>
-            <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <Button>
+            <Card className={classes.card}>
+                <CardMedia
+                    className={classes.media}
+                    title="Beverage"
+                />
                 <CardContent>
-                    <Typography paragraph>More:</Typography>
-                    <Typography paragraph>
-                        Drink History
-          </Typography>
-                    <Typography paragraph>
-                        More about this beverage than you would ever want to know.
-          </Typography>
-                    <Typography paragraph>
-                        Even more about this beverage than you would ever want to know.
-          </Typography>
-                    <Typography>
-                        Ending statement about the beverage
-          </Typography>
+                    <Typography variant="body2" color="textSecondary" component="p">
+                        Drink Description
+        </Typography>
                 </CardContent>
-            </Collapse>
-        </Card>
+                <img src="/images/brown_soda.jpg" />
+                <CardActions disableSpacing>
+                    <IconButton aria-label="add to favorites">
+                        <FavoriteIcon />
+                    </IconButton>
+                    <IconButton aria-label="share">
+                        <ShareIcon />
+                    </IconButton>
+                    <IconButton
+                        className={clsx(classes.expand, {
+                            [classes.expandOpen]: expanded,
+                        })}
+                        onClick={handleExpandClick}
+                        aria-expanded={expanded}
+                        aria-label="show more"
+                    >
+                        <ExpandMoreIcon />
+                    </IconButton>
+                </CardActions>
+                <Collapse in={expanded} timeout="auto" unmountOnExit>
+                    <CardContent>
+                        <Typography paragraph>More:</Typography>
+                        <Typography paragraph>
+                            Drink History
+                        </Typography>
+                        <Typography paragraph>
+                            More about this beverage than you would ever want to know.
+                        </Typography>
+                        <Typography paragraph>
+                            Even more about this beverage than you would ever want to know.
+                        </Typography>
+                        <Typography>
+                            Ending statement about the beverage
+                        </Typography>
+                    </CardContent>
+                </Collapse>
+            </Card>
+        </Button>
     );
 }
